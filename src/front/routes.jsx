@@ -8,6 +8,7 @@ import {
 import { Layout } from "./pages/Layout";
 import { Singup } from "./pages/Singup";
 import { Login } from "./pages/Login";
+import { Welcome } from "./pages/Welcome";
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -23,6 +24,7 @@ export const router = createBrowserRouter(
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Singup />} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/welcome" element={<Welcome/>} />
       </Route>
     )
 );

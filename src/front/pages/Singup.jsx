@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { userService } from "../services/APIUser";
 import { Spinner } from "../components/Spinner";
 
@@ -136,6 +136,9 @@ export const Singup = () => {
 							</form>
 						)}
 				</div>
+			</div>
+			<div className="d-flex justify-content-center mt-3">
+				<Link to="/login" className="btn btn-success">Ir al login →</Link>
 			</div>
 		</div>
 	);
