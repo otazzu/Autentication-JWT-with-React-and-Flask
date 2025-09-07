@@ -24,6 +24,12 @@ def validate_password(password):
         return False
     return True
 
+@api.route ('/users', methods= ['GET'])
+def get_users():
+    all_users = User.query.all()
+    all_user_serialize = list(map(lambda user: user.serialize(), all_users))
+    return jsonify(all_user_serialize), 200
+
 
 @api.route('/signup', methods=['POST'])
 def signup():
@@ -101,7 +107,7 @@ def protected_page():
         if not user:
             return jsonify({'error': 'Usuario no encontrado'}), 404
         
-        return jsonify({'message': 'Usuario con permiso de acceso'}), 200
+        return jsonify(user.serialize()), 200
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500

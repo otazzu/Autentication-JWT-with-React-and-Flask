@@ -7,6 +7,7 @@ export const Welcome = () => {
 
     const [error, setError] = useState("")
     const [enable, setEnable] = useState(true)
+    const [mail, setMail] = useState("")
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -22,6 +23,12 @@ export const Welcome = () => {
                 setError(response.error)
                 countDown()
             }
+            const catParam = "@"
+            const cutMail = response.data.email.split(catParam)
+            const name = cutMail[0]
+            setMail(name)
+            console.log(mail)
+
         } catch (error) {
             console.log(error)
         }
@@ -38,7 +45,8 @@ export const Welcome = () => {
         <div>
             {enable ?
                 <div className="text-center mt-5">
-                    <h1 className="mb-5">Welcome!</h1>
+                    <h1 className="mb-5">Bienvenido!</h1>
+                    <h2 className="text-info p-3">{mail}</h2>
                     <Link to="/login" className="btn btn-primary w-50">Log out</Link>
                 </div>
                 :

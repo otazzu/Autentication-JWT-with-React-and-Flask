@@ -18,9 +18,16 @@ export const Login = () => {
             sessionStorage.removeItem("user");
             sessionStorage.removeItem("token");
             window.dispatchEvent(new Event('userChanged'));
-            setLogoutMsg("Sesión cerrada correctamente.");
+            timerMsg()
         }
     }, [])
+
+    const timerMsg = () => {
+        setLogoutMsg("Sesión cerrada correctamente.");
+        setTimeout(() => {
+            setLogoutMsg("")
+        }, 3000)
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()

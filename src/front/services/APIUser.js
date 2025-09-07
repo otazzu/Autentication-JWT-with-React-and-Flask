@@ -71,7 +71,7 @@ const ProtectedPage = async () => {
     const url = `${backendUrl}api/user/welcome`;
     const token = sessionStorage.getItem("token");
     if (!token){
-      return {success: false, error: "No hay token de sesión"};
+      return {success: false, error: "Acceso no autorizado"};
     }
     const response = await fetch(url, {
       method: "GET",
